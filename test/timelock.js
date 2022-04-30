@@ -43,6 +43,9 @@ const {
         'too early'
       );
   
+
+      //control your local blockchain's block (in order to fast forward those 365 days - for testing purposes only)
+      //Alternatively, adjust the 'duration' in TimeLock.sol
       await time.increase(time.duration.years(1));
       await timelock.withdraw(constants.ZERO_ADDRESS, etherAmount, {from: owner});
       await timelock.withdraw(token.address, tokenAmount, {from: owner})
